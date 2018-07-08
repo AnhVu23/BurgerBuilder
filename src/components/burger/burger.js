@@ -1,5 +1,4 @@
 import React from 'react';
-import _ from 'lodash';
 
 import classes from './burger.css'
 import BurgerIngredient from "./burgerIngredient/burgerIngredient";
@@ -24,13 +23,10 @@ const burger = (props) => {
         <BurgerIngredient type='bread-bottom'/>
       </div>
     );
-  } else {
-    return (
-      <div>
-        Loading
-      </div>
-    )
   }
+    return (
+      <div></div>
+    )
 };
 
 export default burger;
