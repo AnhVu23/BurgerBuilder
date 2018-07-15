@@ -3,7 +3,7 @@ import React from 'react';
 import Logo from '../../logo/logo';
 import NavigationItems from '../navigationItems/navigationItems';
 import Backdrop from '../../UI/backdrop/backdrop';
-import Aux from '../../../hocs/react-aux';
+import Aux from '../../../hocs/react-aux/react-aux';
 import classes from './sideDrawer.css';
 
 const sideDrawer = (props) => {

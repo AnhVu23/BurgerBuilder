@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 
 import classes from './layout.css';
-import Toolbar from '../navigation/toolbar/toolbar';
-import Aux from '../../hocs/react-aux';
-import SideDrawer from '../navigation/sideDrawer/sideDrawer';
+import Toolbar from '../../components/navigation/toolbar/toolbar';
+import Aux from '../react-aux/react-aux';
+import SideDrawer from '../../components/navigation/sideDrawer/sideDrawer';
 class Layout extends Component{
   state = {
     showSideDrawer: false
