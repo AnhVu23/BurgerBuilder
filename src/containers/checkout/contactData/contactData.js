@@ -89,7 +89,7 @@ class ContactData extends Component {
             {value: 'cheapest', displayValue: 'Cheapest'}
           ]
         },
-        value: '',
+        value: 'fastest',
         validation: {},
         valid: true
       }
@@ -186,7 +186,7 @@ class ContactData extends Component {
         <Button btnType="Success" disabled={!this.state.formIsValid}>ORDER</Button>
       </form>
     );
-    if ( this.state.loading ) {
+    if (this.props.loading) {
       form = <Spinner />;
     }
     return (
@@ -199,14 +199,15 @@ class ContactData extends Component {
 }
 const mapDispatchToProps = dispatch => {
   return {
-    onOrderBurger: (orderData) => dispatch(OrderActions.purchaseBurgerStart(orderData))
+    onOrderBurger: (orderData) => dispatch(OrderActions.purchaseBurger(orderData))
   }
 }
 
 const mapStateToProps = state => {
   return {
-    ings: state.ingredients,
-    price: state.totalPrice
+    ings: state.burgerBuilder.ingredients,
+    price: state.burgerBuilder.totalPrice,
+    loading: state.order.loading
   }
 }
 
