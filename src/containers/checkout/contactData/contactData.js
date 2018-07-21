@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 
 import Button from '../../../components/UI/button/button';
 import classes from './contactData.css';
-import axios from '../../../axios-order';
+import axios from '../../../axios/axios-order';
 import Spinner from '../../../components/UI/spinner/spinner';
 import Input from '../../../components/UI/input/input';
 import * as OrderActions from '../../../store/actions/index';
@@ -109,7 +109,7 @@ class ContactData extends Component {
       price: this.props.price,
       orderData: formData
     };
-    this.props.onOrderBurger(order);
+    this.props.onOrderBurger(order, this.props.token);
   }
 
   checkValidity(value, rules) {
@@ -199,7 +199,7 @@ class ContactData extends Component {
 }
 const mapDispatchToProps = dispatch => {
   return {
-    onOrderBurger: (orderData) => dispatch(OrderActions.purchaseBurger(orderData))
+    onOrderBurger: (orderData, token) => dispatch(OrderActions.purchaseBurger(orderData, token))
   }
 }
 
@@ -207,7 +207,8 @@ const mapStateToProps = state => {
   return {
     ings: state.burgerBuilder.ingredients,
     price: state.burgerBuilder.totalPrice,
-    loading: state.order.loading
+    loading: state.order.loading,
+    token: state.auth.token
   }
 }
 
